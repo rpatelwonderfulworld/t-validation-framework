@@ -1,5 +1,3 @@
-<img width="1536" height="1024" alt="ERP_validation_diagram" src="https://github.com/user-attachments/assets/067ae447-974a-4f88-baad-37bfddbadefe" />
-
 # T ERP Validation Framework
 
 ## Overview
@@ -114,5 +112,4 @@ tesla-validation-framework/
 ```bash
 git clone https://github.com/<your-username>/tesla-validation-framework.git
 cd tesla-validation-framework
-
 
