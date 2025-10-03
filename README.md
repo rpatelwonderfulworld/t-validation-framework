@@ -39,3 +39,36 @@ t-validation-framework/
 ├── test_ingestion.py
 ├── test_validation.py
 └── test_reporting.py
+
+
+---
+
+## Features
+
+- **Ingestion Modules:** Simulate loading data from ERP, Finance, and HR systems.  
+- **Validation Modules:** Modular rules per domain; shared `core_validator.py` enforces consistency.  
+- **Reporting:** Generate JSON/CSV reports; placeholder for dashboard visualizations.  
+- **Automation & Scaling:**  
+  - Docker containers per module.  
+  - Kubernetes manifests demonstrate scaling via replicas.  
+  - CI/CD pipeline placeholder for automated testing.  
+- **Tests:** Pytest-ready tests for ingestion and validation.
+
+---
+
+## Validation Rules (Sample)
+
+- **ERP:** Orders must have positive amounts.  
+- **Finance:** Invoice totals must be positive.  
+- **HR:** Employee names cannot be null.  
+
+> More rules can be easily added to each module without changing the core framework.
+
+---
+
+## Setup Instructions
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/<your-username>/tesla-validation-framework.git
+cd tesla-validation-framework
