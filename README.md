@@ -1,8 +1,8 @@
-# Tesla ERP Validation - Docker + Kubernetes GitHub-ready project
+# T ERP Validation - Docker + Kubernetes GitHub-ready project
 
 
 # Project Structure:
-# tesla-validation-framework/
+# t-validation-framework/
 # ├── README.md
 # ├── docker-compose.yml
 # ├── requirements.txt
@@ -31,3 +31,4 @@
 # ├── test_ingestion.py
 # ├── test_validation.py
 # └── test_reporting.py
+
