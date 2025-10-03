@@ -42,6 +42,46 @@ t-validation-framework/
 
 
 ---
+**data validation framework for  ERP modules**
+It demonstrates:
+ETL pipelines for ERP data
+Validation rules for ensuring data quality
+Message-driven architecture using Kafka & RabbitMQ
+Scaling with Docker + Kubernetes
+CI/CD pipeline with unit tests (GitHub Actions)
+real-world enterprise data engineering practices
+
+⚡ Features
+
+✅ ERP Data Ingestion (Finance, HR, Inventory)
+✅ ETL Pipelines with Python
+✅ Data Validation across modules (cross-checks, missing values, duplicates)
+✅ Message-driven pipeline with Kafka & RabbitMQ
+✅ Docker + Kubernetes scaling for horizontal load management
+✅ CI/CD automation with GitHub Actions (unit testing + linting)
+
+tesla-validation-framework/
+│── data/                     # Sample CSV input data
+│── src/
+│   ├── etl/                  # Extract, Transform, Load scripts
+│   ├── validation/            # Data validation rules
+│   ├── messaging/             # Kafka + RabbitMQ integration
+│   │   ├── kafka_producer.py
+│   │   ├── kafka_consumer.py
+│   │   ├── rabbit_producer.py
+│   │   └── rabbit_consumer.py
+│   ├── scaling/               # Kubernetes deployment YAMLs
+│   │   ├── deployment.yaml
+│   │   └── service.yaml
+│   ├── utils/                 # DB connector, helper functions
+│   └── run_validation.py      # Orchestration script
+│── tests/                     # Unit tests for CI/CD
+│── docker-compose.yml         # Local multi-service setup
+│── requirements.txt           # Python dependencies
+│── .github/
+│   └── workflows/
+│       └── ci.yml             # GitHub Actions CI/CD pipeline
+│── README.md
 
 ## Features
 
@@ -72,3 +112,4 @@ t-validation-framework/
 ```bash
 git clone https://github.com/<your-username>/tesla-validation-framework.git
 cd tesla-validation-framework
+
