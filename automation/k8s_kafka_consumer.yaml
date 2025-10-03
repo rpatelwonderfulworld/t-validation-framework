@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: erp-kafka-consumer
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: erp-kafka-consumer
+  template:
+    metadata:
+      labels:
+        app: erp-kafka-consumer
+    spec:
+      containers:
+      - name: erp-kafka-consumer
+        image: ghcr.io/<your-username>/erp-kafka-consumer:latest
+        command: ["python", "ingestion/kafka_consumer.py"]

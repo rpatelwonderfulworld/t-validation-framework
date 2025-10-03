@@ -1,0 +1,62 @@
+name: Tesla Validation CI/CD
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Checkout repo
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Setup Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    # 3. Install dependencies
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    # 4. Run Unit Tests
+    - name: Run tests
+      run: |
+        pytest --maxfail=1 --disable-warnings -q
+
+    # 5. Build Docker Images
+    - name: Build Docker images
+      run: |
+        docker build -t ghcr.io/${{ github.repository }}/erp-kafka-consumer:latest -f Dockerfile.kafka .
+        docker build -t ghcr.io/${{ github.repository }}/finance-rabbitmq-worker:latest -f Dockerfile.rabbitmq .
+
+    # 6. Push to GitHub Container Registry
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v2
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Push Docker images
+      run: |
+        docker push ghcr.io/${{ github.repository }}/erp-kafka-consumer:latest
+        docker push ghcr.io/${{ github.repository }}/finance-rabbitmq-worker:latest
+
+    # 7. Deploy to Kubernetes
+    - name: Set up kubectl
+      uses: azure/setup-kubectl@v3
+      with:
+        version: 'latest'
+
+    - name: Apply K8s manifests
+      run: |
+        kubectl apply -f automation/k8s_kafka_consumer.yaml
+        kubectl apply -f automation/k8s_rabbitmq_worker.yaml

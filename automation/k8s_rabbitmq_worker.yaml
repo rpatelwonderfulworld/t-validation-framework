@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finance-rabbitmq-worker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: finance-rabbitmq-worker
+  template:
+    metadata:
+      labels:
+        app: finance-rabbitmq-worker
+    spec:
+      containers:
+      - name: finance-rabbitmq-worker
+        image: ghcr.io/<your-username>/finance-rabbitmq-worker:latest
+        command: ["python", "ingestion/rabbitmq_consumer.py"]
