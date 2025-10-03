@@ -1,34 +1,41 @@
-# T ERP Validation - Docker + Kubernetes GitHub-ready project
+# T ERP Validation Framework
 
+## Overview
+This project is a **T-style ERP Data Validation Framework** designed to simulate ingestion, validation, and reporting of data from multiple modules: **ERP, Finance, and HR**.  
+It demonstrates **modular design, automated validation, and scaling using Docker and Kubernetes**, suitable for enterprise-scale data pipelines.
 
-# Project Structure:
-# t-validation-framework/
-# ├── README.md
-# ├── docker-compose.yml
-# ├── requirements.txt
-# ├── docs/
-# │ ├── architecture.md
-# │ └── validation_rules.md
-# ├── ingestion/
-# │ ├── __init__.py
-# │ ├── load_erp.py
-# │ ├── load_finance.py
-# │ └── load_hr.py
-# ├── validation/
-# │ ├── __init__.py
-# │ ├── erp_validation.py
-# │ ├── finance_validation.py
-# │ ├── hr_validation.py
-# │ └── core_validator.py
-# ├── reporting/
-# │ ├── __init__.py
-# │ ├── generate_report.py
-# │ └── dashboard_mockup.md
-# ├── automation/
-# │ ├── k8s_deploy.yaml
-# │ └── cicd_pipeline.yml
-# └── tests/
-# ├── test_ingestion.py
-# ├── test_validation.py
-# └── test_reporting.py
+---
 
+## Project Structure
+t-validation-framework/
+│── README.md
+│── docker-compose.yml
+│── requirements.txt
+│
+├── docs/
+│ ├── architecture.md # System design & flow diagrams
+│ └── validation_rules.md # Sample rules per module
+│
+├── ingestion/
+│ ├── load_erp.py # ERP data ingestion simulation
+│ ├── load_finance.py # Finance data ingestion simulation
+│ └── load_hr.py # HR data ingestion simulation
+│
+├── validation/
+│ ├── core_validator.py # Shared validation logic
+│ ├── erp_validation.py
+│ ├── finance_validation.py
+│ └── hr_validation.py
+│
+├── reporting/
+│ ├── generate_report.py # Generates summary JSON/CSV
+│ └── dashboard_mockup.md # Placeholder for dashboards
+│
+├── automation/
+│ ├── k8s_deploy.yaml # Kubernetes deployment placeholder
+│ └── cicd_pipeline.yml # CI/CD pipeline placeholder
+│
+└── tests/
+├── test_ingestion.py
+├── test_validation.py
+└── test_reporting.py
