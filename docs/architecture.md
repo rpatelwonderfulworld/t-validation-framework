@@ -37,3 +37,14 @@ Kubernetes orchestrates scaling of microservices and pipelines.
 CI/CD pipeline deploys changes automatically.
 
 Dashboards monitor validation results.
+
+
+inventory-service/
+├─ app/
+│  ├─ controllers/   <-- REST API endpoints (CRUD)
+│  ├─ models/        <-- DB models
+│  ├─ services/      <-- business logic
+│  └─ repositories/  <-- DB queries
+├─ Dockerfile
+├─ requirements.txt
+└─ main.py           <-- FastAPI app
