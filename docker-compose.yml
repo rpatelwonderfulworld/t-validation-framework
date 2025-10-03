@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+erp-service:
+build: ./ingestion
+container_name: erp-service
+finance-service:
+build: ./ingestion
+container_name: finance-service
+hr-service:
+build: ./ingestion
+container_name: hr-service

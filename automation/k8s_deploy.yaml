@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: erp-validation-deployment
+spec:
+replicas: 3
+selector:
+matchLabels:
+app: erp-validation
+template:
+metadata:
+labels:
+app: erp-validation
+spec:
+containers:
+- name: erp-validation
+image: your_docker_image_here
+ports:
+- containerPort: 5000
