@@ -60,7 +60,7 @@ real-world enterprise data engineering practices
 ✅ Docker + Kubernetes scaling for horizontal load management
 ✅ CI/CD automation with GitHub Actions (unit testing + linting)
 
-tesla-validation-framework/
+t-validation-framework/
 │── data/                     # Sample CSV input data
 │── src/
 │   ├── etl/                  # Extract, Transform, Load scripts
@@ -111,5 +111,5 @@ tesla-validation-framework/
 1. **Clone the repository**
 ```bash
 git clone https://github.com/<your-username>/tesla-validation-framework.git
-cd tesla-validation-framework
+cd t-validation-framework
 
